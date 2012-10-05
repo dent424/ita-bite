@@ -1,0 +1,28 @@
+<body>
+	<div class="row">
+		<div class="span7 offset2">
+			<legend>Current Ingredient</legend>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="span7 offset2">
+			<table class="table">
+				<thread>
+					<tr>
+						<th>Dimensions</th>
+						<th>Notes</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% @ingredient.each do |ingredient| %>
+					<tr>
+						<td><%= link_to ingredient.measure1.to_s+" X "+ingredient.measure2.to_s+" X "+ingredient.measure3.to_s, ingredient %></td>
+						<td><%=ingredient.note%></td>
+					</tr>
+					<% end %>
+				</tbody>
+			</table>
+		<div>
+	<div>
+</body>

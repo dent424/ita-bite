@@ -1,0 +1,14 @@
+<div class="row">
+	<div class="span7 offset2">
+		<h2><%= @ingredient.measure1 %> X <%= @ingredient.measure2 %> X <%= @ingredient.measure3 %></h2>
+		<h5><%= @ingredient.note %></h5>
+	</div>
+</div>
+
+<div class="row">
+	<div class="span7 offset2">
+		<%= link_to "Add Change", new_ingredient_changes_path(@ingredient), {:class => 'btn btn-primary'} %>
+	<p></p>
+	</div>
+</div>
+

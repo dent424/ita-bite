@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121005023254) do
+ActiveRecord::Schema.define(:version => 20121005055947) do
 
   create_table "changes", :force => true do |t|
     t.string   "type"
@@ -25,9 +25,9 @@ ActiveRecord::Schema.define(:version => 20121005023254) do
   add_index "changes", ["ingredient_id"], :name => "index_changes_on_ingredient_id"
 
   create_table "ingredients", :force => true do |t|
-    t.integer  "measure1"
-    t.integer  "measure2"
-    t.integer  "measure3"
+    t.float    "measure1"
+    t.float    "measure2"
+    t.float    "measure3"
     t.text     "note"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false

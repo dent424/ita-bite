@@ -1,8 +1,8 @@
 ItaBite::Application.routes.draw do
   resources :ingredients do
-    resources :comments
+    resources :changes
   end
-  
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

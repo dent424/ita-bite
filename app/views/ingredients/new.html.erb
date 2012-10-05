@@ -1,0 +1,59 @@
+<body>	
+	<div class="row-fluid">
+		<div class="span7 offset4">
+			<legend>New Ingredient</legend>
+		</div>
+	</div>
+
+	<div class="row-fluid">
+		<div class="span6 offset3">
+			<%= form_for(@ingredient, :html=> {:class => 'form-horizontal'}) do |f| %>
+
+			<div class="control-group">
+				<label class="control-label">
+					Measure 1
+				</label>
+				<div class="controls">
+					<%= f.text_field :measure1 %>
+				</div>
+			</div>
+
+			<div class="control-group">
+				<label class="control-label">
+					Measure 2
+				</label>
+				<div class="controls">
+					<%= f.text_field :measure2 %>
+				</div>
+			</div>
+
+
+
+			<div class="control-group">
+				<label class="control-label">
+					Measure 3
+				</label>
+				<div class="controls">
+					<%= f.text_field :measure3 %>
+				</div>
+			</div>
+
+			<div class="control-group">
+				<label class="control-label">
+					Notes
+				</label>
+				<div class="controls">
+					<%= f.text_area :note, :rows => 5 %>
+				</div>
+			</div>
+
+			<div class="control-group">
+				<div class="controls">
+					<%= f.submit "Submit", :class => "btn" %>
+				</div>
+			</div>
+		</div>
+	<div>
+</body>
+
+<% end %>
