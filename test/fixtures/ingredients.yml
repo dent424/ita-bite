@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  measure1: 1
+  measure2: 1
+  measure3: 1
+  note: MyText
+
+two:
+  measure1: 1
+  measure2: 1
+  measure3: 1
+  note: MyText
