@@ -4,6 +4,7 @@
 			<th><%= link_to "Add/Remove",:sort =>"add_remove" %></th>
 			<th><%= link_to "Number", :sort =>"count" %></th>
 			<th><%= link_to "Date", :sort =>"created_at" %></th>
+			<th> Actions </th>
 		</tr>
 	</thead>
 	<tbody>
@@ -11,13 +12,17 @@
 		<tr>
 			<td>
 				<% if change.add_remove == 1 %>
-					Removed
-				<% elsif change.add_remove == 2 %>
 					Added
+				<% elsif change.add_remove == 2 %>
+					Used
 				<% end %>
 			</td>
 			<td><%= change.count %></td>
 			<td><%=change.created_at%></td>
+			<td>
+				<%= link_to "Edit", edit_ingredient_change_path(@ingredient, change) %>
+				<%= link_to " Delete",ingredient_change_path(@ingredient, change), :confirm => 'Are you sure?', :method => :delete %>
+			</td>
 		</tr>
 		<% end %>
 	</tbody>

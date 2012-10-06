@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121006025315) do
+ActiveRecord::Schema.define(:version => 20121006055713) do
 
   create_table "changes", :force => true do |t|
     t.integer  "count"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(:version => 20121006025315) do
     t.text     "note"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "total"
   end
 
 end

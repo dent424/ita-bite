@@ -6,19 +6,32 @@
 	</div>
 
 	<div class="row">
+	<div class="span7 offset2">
+		<%= link_to "Add Ingredient", new_ingredient_path, {:class => 'btn btn-primary'} %>
+	<p></p>
+	</div>
+</div>
+
+	<div class="row">
 		<div class="span7 offset2">
 			<table class="table">
 				<thread>
 					<tr>
 						<th>Dimensions</th>
+						<th>Remaining</th>
 						<th>Notes</th>
+						<th>Action</th>
 					</tr>
 				</thead>
 				<tbody>
 					<% @ingredient.each do |ingredient| %>
 					<tr>
 						<td><%= link_to ingredient.measure1.to_s+" X "+ingredient.measure2.to_s+" X "+ingredient.measure3.to_s, ingredient %></td>
+						<td><%=ingredient.total%></td>
 						<td><%=ingredient.note%></td>
+						<td>
+							<%= link_to "Edit", edit_ingredient_path(ingredient) %>
+							<%= link_to " Delete",ingredient_path(ingredient), :confirm => 'Are you sure?', :method => :delete %><td>
 					</tr>
 					<% end %>
 				</tbody>
