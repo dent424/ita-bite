@@ -39,11 +39,8 @@ class IngredientsController < ApplicationController
 		@ingredient = Ingredient.find(params[:id])
 		@change = @ingredient.changes.find(:all)
 		@total = @ingredient.changes.where("add_remove= 1").sum(:count)-@total = @ingredient.changes.where("add_remove= 2").sum(:count)
-		if @total != @ingredient.total
-			@ingredient.total = @total
-			@ingredient.save
-		else
-		end
+		@ingredient.total = @total
+		@ingredient.save
 	end
 
 	private
