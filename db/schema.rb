@@ -11,15 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121005055947) do
+ActiveRecord::Schema.define(:version => 20121006025315) do
 
   create_table "changes", :force => true do |t|
-    t.string   "type"
     t.integer  "count"
     t.integer  "total"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
     t.integer  "ingredient_id"
+    t.integer  "add_remove"
   end
 
   add_index "changes", ["ingredient_id"], :name => "index_changes_on_ingredient_id"

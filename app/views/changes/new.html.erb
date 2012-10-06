@@ -14,7 +14,7 @@
 					Add/Remove
 				</label>
 				<div class="controls">
-					<%= f.text_field :type %>
+					<%= f.select(:add_remove, options_for_select([['Add', 1],['Use', 2]],2)) %>
 				</div>
 			</div>
 

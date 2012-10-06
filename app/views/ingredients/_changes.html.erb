@@ -1,0 +1,24 @@
+<table class="table">
+	<thread>
+		<tr>
+			<th><%= link_to "Add/Remove",:sort =>"add_remove" %></th>
+			<th><%= link_to "Number", :sort =>"count" %></th>
+			<th><%= link_to "Date", :sort =>"created_at" %></th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @change.each do |change| %>
+		<tr>
+			<td>
+				<% if change.add_remove == 1 %>
+					Removed
+				<% elsif change.add_remove == 2 %>
+					Added
+				<% end %>
+			</td>
+			<td><%= change.count %></td>
+			<td><%=change.created_at%></td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
