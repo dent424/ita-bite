@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  client: MyString
+  billing: MyString
+  description: MyText
+  in_date: 2012-10-15
+  target: 2012-10-15
+  actual: 2012-10-15
+
+two:
+  name: MyString
+  client: MyString
+  billing: MyString
+  description: MyText
+  in_date: 2012-10-15
+  target: 2012-10-15
+  actual: 2012-10-15

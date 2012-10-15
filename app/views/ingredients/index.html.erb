@@ -1,9 +1,46 @@
 <body>
 	<div class="row">
 		<div class="span7 offset2">
-			<legend>Current Ingredient</legend>
+			<legend>Ingredient List</legend>
 		</div>
 	</div>
+
+	<div class="row">
+		<div class="span7 offset2">
+			<%= search_form_for @search do |f| %>
+			<div class="control-group">
+				<div class="control-label">
+					Measure 1
+				</div>
+				<div class="controls">
+					<%= f.text_field :measure1_cont %>
+				</div>
+			</div>
+			<div class="control-group">
+				<div class="control-label">
+					Measure 2
+				</div>
+				<div class="controls">
+					<%= f.text_field :measure2_cont %>
+				</div>
+			</div>
+			<div class="control-group">
+				<div class="control-label">
+					Measure 2
+				</div>
+				<div class="controls">
+					<%= f.text_field :measure3_cont %>
+				</div>
+			</div>
+			<div class="control-group">
+				<div class="controls">
+					<%= f.submit "Search", :class => "btn" %>
+				</div>
+			</div>
+			<% end %>
+		</div>
+	</div>
+
 
 	<div class="row">
 	<div class="span7 offset2">
@@ -30,8 +67,15 @@
 						<td><%=ingredient.total%></td>
 						<td><%=ingredient.note%></td>
 						<td>
-							<%= link_to "Edit", edit_ingredient_path(ingredient) %>
-							<%= link_to " Delete",ingredient_path(ingredient), :confirm => 'Are you sure?', :method => :delete %><td>
+							<%= form_for([ingredient, @change], :html=> {:class => 'form-inline'}) do |f| %>
+								<%= f.text_field :count, :class => "input-small" %>
+								<div class="input-append">
+									<%= f.submit "Use", :class => "btn" %>
+								</div>
+							<% end %>
+				</div>
+
+						</td>							
 					</tr>
 					<% end %>
 				</tbody>

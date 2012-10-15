@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121006055713) do
+ActiveRecord::Schema.define(:version => 20121015051546) do
 
   create_table "changes", :force => true do |t|
     t.integer  "count"
@@ -32,6 +32,38 @@ ActiveRecord::Schema.define(:version => 20121006055713) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.integer  "total"
+  end
+
+  create_table "items", :force => true do |t|
+    t.string   "name"
+    t.integer  "pieces"
+    t.string   "blue_print_number"
+    t.date     "completion"
+    t.integer  "job_id"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+  end
+
+  create_table "jobs", :force => true do |t|
+    t.string   "name"
+    t.string   "client"
+    t.string   "billing"
+    t.text     "description"
+    t.date     "in_date"
+    t.date     "target"
+    t.date     "actual"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "operations", :force => true do |t|
+    t.string   "name"
+    t.string   "worker"
+    t.text     "notes"
+    t.datetime "start"
+    t.datetime "end"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
 end

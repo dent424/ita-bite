@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  pieces: 1
+  blue_print_number: MyString
+  completion: 2012-10-15
+  job_id: 1
+
+two:
+  name: MyString
+  pieces: 1
+  blue_print_number: MyString
+  completion: 2012-10-15
+  job_id: 1

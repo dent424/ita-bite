@@ -1,9 +1,30 @@
 <table class="table">
 	<thread>
 		<tr>
-			<th><%= link_to "Add/Remove",:sort =>"add_remove" %></th>
-			<th><%= link_to "Number", :sort =>"count" %></th>
-			<th><%= link_to "Date", :sort =>"created_at" %></th>
+			<th>
+				<%= sortable "add_remove", "Add/Remove" %>
+				<% if @direction=="asc" and @column=="add_remove" %>
+					<i class="icon-arrow-up"></i>
+				<% elsif @direction=="desc" and @column=="add_remove" %>
+					<i class="icon-arrow-down"></i>
+				<% end %>
+			</th>
+			<th>
+				<%= sortable "count", "Number"%>
+				<% if @direction=="asc" and @column=="count" %>
+					<i class="icon-arrow-up"></i>
+				<% elsif @direction=="desc" and @column=="count" %>
+					<i class="icon-arrow-down"></i>
+				<% end %>
+			</th>
+			<th>
+				<%= sortable "created_at", "Date"%>
+				<% if @direction=="asc" and @column=="created_at" %>
+					<i class="icon-arrow-up"></i>
+				<% elsif @direction=="desc" and @column=="created_at" %>
+					<i class="icon-arrow-down"></i>
+				<% end %>
+			</th>
 			<th> Actions </th>
 		</tr>
 	</thead>
@@ -20,7 +41,6 @@
 			<td><%= change.count %></td>
 			<td><%=change.created_at%></td>
 			<td>
-				<%= link_to "Edit", edit_ingredient_change_path(@ingredient, change) %>
 				<%= link_to " Delete",ingredient_change_path(@ingredient, change), :confirm => 'Are you sure?', :method => :delete %>
 			</td>
 		</tr>

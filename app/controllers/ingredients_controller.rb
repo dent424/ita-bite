@@ -1,4 +1,5 @@
 class IngredientsController < ApplicationController
+	helper_method :sort_column, :sort_direction
 	def new
 		@ingredient=Ingredient.new
 	end
@@ -8,7 +9,9 @@ class IngredientsController < ApplicationController
 	end
 
 	def index
-		@ingredient = Ingredient.find(:all)
+		@search = Ingredient.search(params[:q])
+		@ingredient = @search.result
+		@change = Change.new
 	end
 
 	def create	
@@ -37,20 +40,24 @@ class IngredientsController < ApplicationController
 
 	def show
 		@ingredient = Ingredient.find(params[:id])
-		@change = @ingredient.changes.find(:all)
-		@total = @ingredient.changes.where("add_remove= 1").sum(:count)-@total = @ingredient.changes.where("add_remove= 2").sum(:count)
-		@ingredient.total = @total
-		@ingredient.save
+		@q = @ingredient.changes.search(params[:q]) 
+		@change = @q.result(:distinct => true).order(sort_column + ' ' + sort_direction)
+		@direction = sort_direction
+		@column = sort_column
+
 	end
 
 	private
-  	def sort_column
-    	Change.column_names.include?(params[:sort]) ? params[:sort] : "created_at"
-  	end
-  
-  	def sort_direction
-   	 	%w[asc desc].include?(params[:direction]) ? params[:direction] : "desc"
-  	end
+	    def sort_column
+	    	Change.column_names.include?(params[:sort]) ? params[:sort] : "created_at"
+	  	end
+
+
+		def sort_direction
+		  	%w[asc desc].include?(params[:direction]) ?  params[:direction] : "asc"
+		end
+
+
 
 
 
