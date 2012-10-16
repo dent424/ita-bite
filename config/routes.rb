@@ -1,4 +1,11 @@
 ItaBite::Application.routes.draw do
+
+  resources :jobs do
+    resources :items do
+      resources :operations
+    end
+  end
+
   resources :ingredients do
     resources :changes
   end

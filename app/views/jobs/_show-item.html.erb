@@ -1,0 +1,35 @@
+<h2>Items</h2>
+
+			<table class ="table"> 
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Pieces</th>
+						<th>Blue Print #</th>
+						<th>Completion</th>
+						<th>Action</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% @item.each do |item| %>
+					<tr>
+						<td><%=item.name%></td>
+						<td><%=item.pieces%></td>
+						<td><%=item.blue_print_number%></td>
+						<td>
+							<% if item.completion? %>
+								<%=item.completion%>
+							<% else %>
+								<%= form_for([@job,item]) do |t| %>
+									<%= t.hidden_field :completion, :value => Date.today %>
+									<%= t.submit "Finish Item" %>
+								<% end %>
+							<% end %>
+						</td>
+						<td>
+							<%= link_to "Edit", edit_job_item_path(@job, item) %><%= link_to " Delete", job_item_path(@job, item), :confirm => 'Are you sure?', :method => :delete %>
+						</td>
+					</tr>
+					<% end %>
+				</tbody>
+			</table>
