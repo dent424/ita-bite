@@ -69,7 +69,7 @@
 					Completion
 				</label>
 				<div class="controls">
-					<%= f.date_select :actual, :start_year => Time.now.year - 1 , :end_year => Time.now.year, :order => [:year, :month, :day]%>
+					<%= f.date_select :actual, :start_year => Time.now.year - 1 , :end_year => Time.now.year, :order => [:year, :month, :day], :include_blank => true %>
 				</div>
 			</div>
 
