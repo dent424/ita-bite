@@ -2,40 +2,18 @@
 	<div class="row">
 	<div class="span8 offset1">
 		<h1>Current Jobs</h1>
-		<table class="table">
-			<thead>
-				<tr>
-					<th> Name </th>
-					<th> Client </th>
-					<th> Billing </th>
-					<th> In Date </th>
-					<th> Target </th>
-					<th> Completion </th>
-					<th> Action </th>
-				</tr>
-			</thead>
-			<tbody>
-				<% @job.each do |job| %>
-				<tr>
-					<td><%= link_to job.name, job %></td>
-					<td><%= job.client %></td>
-					<td><%= job.billing %></td>
-					<td><%= job.in_date %></td>
-					<td><%= job.target %></td>
-					<td><% if job.actual? %>
-							<%=job.actual %>
-						<% else %>
-							<%= form_for(job) do |t| %>
-								<%= t.hidden_field :actual, :value => Date.today %>
-								<%= t.submit "Complete Job" %>
-							<% end %>
-						<% end %>
-					</td>
-					<td></td>
-				</tr>
-				<% end %>
-			</tbody>
-		<table>
+		<%= form_tag jobs_path, :method => 'get', :id => "jobs_search" do %>
+			<div class="control-group">
+				<div class="controls">
+					<%= text_field_tag :search, params[:search] %>
+					<%= submit_tag "Search", :name => nil %>
+				</div>
+			</div>
+		<% end %>
+
+		<div id="jobs"><%= render 'jobs' %></div>
+
+		<%= will_paginate @job %>
 	</div>
 	</div>
 </body>

@@ -1,4 +1,5 @@
 class JobsController < ApplicationController
+	helper_method :sort_column, :sort_direction
 	def new
 		@job=Job.new		
 	end
@@ -27,7 +28,7 @@ class JobsController < ApplicationController
 	end
 
 	def index
-		@job = Job.find(:all)
+		@job = Job.search(params[:search]).order(sort_column + ' ' + sort_direction).paginate(:per_page => 20, :page => params[:page])
 	end
 
 	def edit
@@ -38,5 +39,13 @@ class JobsController < ApplicationController
 		@job = Job.find(params[:id])
 		@job.destroy
 		redirect_to jobs_path
+	end
+
+	private
+	def sort_column
+		Job.column_names.include?(params[:sort]) ? params[:sort] : "name"
+	end
+	def sort_direction
+		%w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
 	end
 end
