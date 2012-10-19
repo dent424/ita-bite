@@ -7,7 +7,7 @@ $(function () {
   	$.get(this.action, $(this).serialize(), null, 'script');  
     return false;  
   });
-  $('.hide_items').click(function(){
+  $('.hide_items').live('click',function(){
   		$(this).closest("tr").next().toggleClass("hidden");
   })  
 });  
