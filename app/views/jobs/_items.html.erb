@@ -1,0 +1,14 @@
+<table>
+	<th>Name</th>
+	<th>Pieces</th>
+	<th>Blue Print Number</th>
+	<tbody>
+		<% job.items.each do |item| %>
+		<tr>
+			<td><%=item.name %></td>
+			<td><%=item.pieces %></td>
+			<td><%=item.blue_print_number %></td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>

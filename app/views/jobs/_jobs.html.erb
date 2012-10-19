@@ -30,8 +30,14 @@
 							<% end %>
 						<% end %>
 					</td>
-					<td></td>
+					<td><div class="hide_items">Hide</div></td>
 				</tr>
-				<% end %>
+				<tr class="hidden">
+					<td></td>
+					<td colspan="6">
+						<div class="items"><%= render 'items', :job => job %></div>
+					</td>
+				</tr>
+				<% end %>	
 			</tbody>
 		</table>
