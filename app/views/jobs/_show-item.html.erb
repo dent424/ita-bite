@@ -3,9 +3,11 @@
 			<table class ="table"> 
 				<thead>
 					<tr>
+						<th>ID</th>
 						<th>Name</th>
 						<th>Pieces</th>
 						<th>Blue Print #</th>
+						<th>Round/Square</th>
 						<th>Completion</th>
 						<th>Action</th>
 					</tr>
@@ -13,9 +15,11 @@
 				<tbody>
 					<% @item.each do |item| %>
 					<tr>
+						<td><%=item.identification%></td>
 						<td><%=item.name%></td>
 						<td><%=item.pieces%></td>
 						<td><%=item.blue_print_number%></td>
+						<td><%=item.round_square %></td>
 						<td>
 							<% if item.completion? %>
 								<%=item.completion%>

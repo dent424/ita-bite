@@ -1,0 +1,2 @@
+class SquareIngredientsController < ApplicationController
+end

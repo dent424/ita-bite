@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121015051546) do
+ActiveRecord::Schema.define(:version => 20121019022344) do
 
   create_table "changes", :force => true do |t|
     t.integer  "count"
@@ -42,6 +42,8 @@ ActiveRecord::Schema.define(:version => 20121015051546) do
     t.integer  "job_id"
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
+    t.integer  "identification"
+    t.string   "round_square"
   end
 
   create_table "jobs", :force => true do |t|
@@ -64,6 +66,31 @@ ActiveRecord::Schema.define(:version => 20121015051546) do
     t.datetime "end"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "round_ingredients", :force => true do |t|
+    t.integer  "item_id"
+    t.float    "length"
+    t.float    "diameter"
+    t.string   "material"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.integer  "number"
+    t.date     "order_date"
+    t.date     "delivery_date"
+  end
+
+  create_table "square_ingredients", :force => true do |t|
+    t.integer  "item_id"
+    t.float    "length"
+    t.float    "width"
+    t.float    "thickness"
+    t.string   "material"
+    t.integer  "number"
+    t.date     "order_date"
+    t.date     "delivery_date"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
 end

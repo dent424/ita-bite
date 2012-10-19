@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  item_id: 1
+  length: 1.5
+  diameter: 1.5
+  material: MyString
+
+two:
+  item_id: 1
+  length: 1.5
+  diameter: 1.5
+  material: MyString
