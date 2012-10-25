@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  length: 1.5
+  width: 1.5
+  thickness: 1.5
+  pieces: 1
+  item_id: 1
+  order_date: 2012-10-20
+  delivery_date: 2012-10-20
+  material: MyString
+
+two:
+  length: 1.5
+  width: 1.5
+  thickness: 1.5
+  pieces: 1
+  item_id: 1
+  order_date: 2012-10-20
+  delivery_date: 2012-10-20
+  material: MyString

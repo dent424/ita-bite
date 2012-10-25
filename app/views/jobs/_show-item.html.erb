@@ -1,5 +1,4 @@
 <h2>Items</h2>
-
 			<table class ="table"> 
 				<thead>
 					<tr>
@@ -16,7 +15,7 @@
 					<% @item.each do |item| %>
 					<tr>
 						<td><%=item.identification%></td>
-						<td><%=item.name%></td>
+						<td><%= link_to item.name, job_item_path(@job, item) %></td>
 						<td><%=item.pieces%></td>
 						<td><%=item.blue_print_number%></td>
 						<td><%=item.round_square %></td>

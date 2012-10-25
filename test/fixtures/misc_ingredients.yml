@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  description: MyString
+  order_date: 2012-10-20
+  delivery_date: 2012-10-20
+  material: MyString
+  item_id: 1
+  pieces: 1
+
+two:
+  description: MyString
+  order_date: 2012-10-20
+  delivery_date: 2012-10-20
+  material: MyString
+  item_id: 1
+  pieces: 1

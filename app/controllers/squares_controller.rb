@@ -1,15 +1,15 @@
-class OperationsController < ApplicationController
+class SquaresController < ApplicationController
 	def new
 		@item = Item.find(params[:item_id])
 		@job = @item.job
-		@operation=Operation.new	
+		@square=Square.new	
 	end
 
 	def create
 		@item = Item.find(params[:item_id])
 		@job = @item.job
-		@operation = @item.operations.new(params[:operation])
-		if @operation.save
+		@square = @item.squares.new(params[:square])
+		if @square.save
 			redirect_to job_item_path(@job, @item)
 		else
 			render 'new'
@@ -19,14 +19,14 @@ class OperationsController < ApplicationController
 	def edit
 		@item = Item.find(params[:item_id])
 		@job = @item.job
-		@operation = @item.operations.find(params[:id]) 
+		@square = @item.squares.find(params[:id]) 
 	end
 
 	def update
 		@item = Item.find(params[:item_id])
 		@job = @item.job
-		@operation = @item.operations.find(params[:id]) 
-		if @operation.update_attributes(params[:operation])
+		@square = @item.squares.find(params[:id]) 
+		if @square.update_attributes(params[:square])
 			redirect_to item_path(@item)
 		else
 			render 'edit'
@@ -35,8 +35,8 @@ class OperationsController < ApplicationController
 
 	def destroy
 		@item = Item.find(params[:item_id])
-		@operation = @item.operations[0]  
-		@operation.destroy
+		@square = @item.squares[0]  
+		@square.destroy
 		redirect_to item_path(@item)
 	end
 end

@@ -1,0 +1,34 @@
+<body>
+	<div class="row">
+		<div class="span6 offset1">
+			<h2> <%= @item.identification %>. <%=@job.name%> <%= @item.pieces %>P</h2>
+			<h3> <%= @item.name %> (<%= @item.blue_print_number %>) </h3>
+
+			<%= link_to "Edit Item",  edit_job_item_path(@job, @item), {:class => 'btn btn-primary'} %>
+			<%= link_to " Delete Item",job_item_path(@job, @item), {:confirm => 'Are you sure?', :class => 'btn btn-danger', :method => :delete}  %>
+			<hr>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="span6 offset1">
+			<% if @item.rounds[0] %>
+				<%= render "show_round" %>
+				<hr>
+			<% elsif @item.squares[0] %>
+				<%= render "show_square" %>
+				<hr>
+			<% elsif @item.round_square == "Round" || @item.round_square == "丸" %>
+					<%= link_to "Add Ingredient",  new_item_round_path(@item), {:class => 'btn btn-primary'} %>
+			<% else @item.round_square == "Square" || @item.round_square == "角" %>
+					<%= link_to "Add Ingredient",  new_item_square_path(@item), {:class => 'btn btn-primary'} %>
+			<% end %>
+			<hr>
+		</div>
+	</div>
+
+	<div class ="row">
+		<div class="span6 offset1">
+			<%= render "show_operation" %>
+		</div>
+	</div>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121019022344) do
+ActiveRecord::Schema.define(:version => 20121025083825) do
 
   create_table "changes", :force => true do |t|
     t.integer  "count"
@@ -58,6 +58,17 @@ ActiveRecord::Schema.define(:version => 20121019022344) do
     t.datetime "updated_at",  :null => false
   end
 
+  create_table "misc_ingredients", :force => true do |t|
+    t.string   "description"
+    t.date     "order_date"
+    t.date     "delivery_date"
+    t.string   "material"
+    t.integer  "item_id"
+    t.integer  "pieces"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
   create_table "operations", :force => true do |t|
     t.string   "name"
     t.string   "worker"
@@ -66,29 +77,30 @@ ActiveRecord::Schema.define(:version => 20121019022344) do
     t.datetime "end"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "item_id"
   end
 
-  create_table "round_ingredients", :force => true do |t|
-    t.integer  "item_id"
-    t.float    "length"
+  create_table "rounds", :force => true do |t|
     t.float    "diameter"
+    t.float    "length"
+    t.float    "pieces"
+    t.integer  "item_id"
+    t.date     "order_date"
+    t.date     "delivery_date"
     t.string   "material"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
-    t.integer  "number"
-    t.date     "order_date"
-    t.date     "delivery_date"
   end
 
-  create_table "square_ingredients", :force => true do |t|
-    t.integer  "item_id"
+  create_table "squares", :force => true do |t|
     t.float    "length"
     t.float    "width"
     t.float    "thickness"
-    t.string   "material"
-    t.integer  "number"
+    t.integer  "pieces"
+    t.integer  "item_id"
     t.date     "order_date"
     t.date     "delivery_date"
+    t.string   "material"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
   end

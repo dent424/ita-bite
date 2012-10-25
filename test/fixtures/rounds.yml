@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  diameter: 1.5
+  length: 1.5
+  pieces: 1.5
+  item_id: 1
+  order_date: 2012-10-19
+  delivery_date: 2012-10-19
+  material: MyString
+
+two:
+  diameter: 1.5
+  length: 1.5
+  pieces: 1.5
+  item_id: 1
+  order_date: 2012-10-19
+  delivery_date: 2012-10-19
+  material: MyString

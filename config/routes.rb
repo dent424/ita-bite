@@ -6,8 +6,8 @@ ItaBite::Application.routes.draw do
 
   resources :items do
     resources :operations
-    resources :round_ingredients
-    resources :square_ingredients
+    resources :rounds
+    resources :squares
   end
 
   resources :ingredients do

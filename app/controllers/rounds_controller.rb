@@ -1,15 +1,15 @@
-class OperationsController < ApplicationController
+class RoundsController < ApplicationController
 	def new
 		@item = Item.find(params[:item_id])
 		@job = @item.job
-		@operation=Operation.new	
+		@round=Round.new	
 	end
 
 	def create
 		@item = Item.find(params[:item_id])
 		@job = @item.job
-		@operation = @item.operations.new(params[:operation])
-		if @operation.save
+		@round = @item.rounds.new(params[:round])
+		if @round.save
 			redirect_to job_item_path(@job, @item)
 		else
 			render 'new'
@@ -19,14 +19,14 @@ class OperationsController < ApplicationController
 	def edit
 		@item = Item.find(params[:item_id])
 		@job = @item.job
-		@operation = @item.operations.find(params[:id]) 
+		@round = @item.rounds.find(params[:id]) 
 	end
 
 	def update
 		@item = Item.find(params[:item_id])
 		@job = @item.job
-		@operation = @item.operations.find(params[:id]) 
-		if @operation.update_attributes(params[:operation])
+		@round = @item.rounds.find(params[:id]) 
+		if @round.update_attributes(params[:round])
 			redirect_to item_path(@item)
 		else
 			render 'edit'
@@ -35,8 +35,8 @@ class OperationsController < ApplicationController
 
 	def destroy
 		@item = Item.find(params[:item_id])
-		@operation = @item.operations[0]  
-		@operation.destroy
+		@round = @item.rounds[0]  
+		@round.destroy
 		redirect_to item_path(@item)
 	end
 end

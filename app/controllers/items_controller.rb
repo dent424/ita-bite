@@ -36,5 +36,15 @@ class ItemsController < ApplicationController
 		redirect_to job_path(@job)
 	end
 
+	def show
+		if params[:job_id]
+			@job = Job.find(params[:job_id])
+			@item = @job.items.find(params[:id])
+		else
+			@item=Item.find(params[:id])
+			@job=@item.job
+		end
+	end
+
 
 end

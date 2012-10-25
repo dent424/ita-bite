@@ -1,0 +1,2 @@
+class MiscIngredientsController < ApplicationController
+end
