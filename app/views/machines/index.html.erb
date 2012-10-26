@@ -1,0 +1,25 @@
+
+<div class="row">
+	<div class="span8 offset1">
+		<h1>Machines</h1>
+
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Type</th>
+					<th>Name</th>
+					<th>Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @machine.each do |machine| %>
+				<tr>
+					<td><%= link_to machine.name, machine %></td>
+					<td><%= machine.machine_type %></td>
+					<td>Assign/Edit/Delete</td>
+				</tr>
+				<% end %>	
+			</tbody>
+		</table>
+	</div>
+</div>

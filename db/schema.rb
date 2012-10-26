@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121025083825) do
+ActiveRecord::Schema.define(:version => 20121026070941) do
 
   create_table "changes", :force => true do |t|
     t.integer  "count"
@@ -23,6 +23,20 @@ ActiveRecord::Schema.define(:version => 20121025083825) do
   end
 
   add_index "changes", ["ingredient_id"], :name => "index_changes_on_ingredient_id"
+
+  create_table "employee_machines", :force => true do |t|
+    t.integer  "machine_id"
+    t.integer  "employee_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "employees", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.string   "first_name"
+    t.string   "last_name"
+  end
 
   create_table "ingredients", :force => true do |t|
     t.float    "measure1"
@@ -56,6 +70,14 @@ ActiveRecord::Schema.define(:version => 20121025083825) do
     t.date     "actual"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+  end
+
+  create_table "machines", :force => true do |t|
+    t.string   "name"
+    t.text     "notes"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.string   "machine_type"
   end
 
   create_table "misc_ingredients", :force => true do |t|
