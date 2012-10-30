@@ -37,6 +37,15 @@
 		</div>
 
 		<div class="control-group">
+			<label class="control-label">
+				Approved Employees
+			</label>
+			<div class="controls">
+				<%= f.select :employee_ids, Employee.all.collect{|x| [x.last_name, x.id]}, {}, :multiple => true %>
+			</div>
+		</div>
+
+		<div class="control-group">
 			<div class="controls">
 				<%= f.submit "Submit", :class => "btn" %>
 			</div>

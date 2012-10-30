@@ -1,3 +1,21 @@
-<%= @machine.machine_type %>
-<%= @machine.name %>
-<%= @machine.notes %>
+<h1><%= @machine.name %></h1>
+<h3><%= @machine.machine_type %></h3>
+
+<p><%= @machine.notes %></p>
+
+<table class="table">
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Action</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @machine.employees.each do |employee| %>
+		<tr>
+			<td><%= link_to employee.last_name + employee.first_name, employee %></td>
+			<td></td>
+		</tr>
+		<% end %>	
+	</tbody>
+</table>

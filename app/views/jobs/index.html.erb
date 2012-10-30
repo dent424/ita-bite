@@ -1,6 +1,8 @@
 <body>
 	<div class="row">
 	<div class="span8 offset1">
+		
+
 		<h1>Current Jobs</h1>
 		<%= form_tag jobs_path, :method => 'get', :id => "jobs_search" do %>
 			<div class="control-group">
@@ -9,6 +11,8 @@
 					<%= submit_tag "Search", :name => nil %>
 				</div>
 			</div>
+			<%= link_to "Add Job",  new_job_path(@job), {:class => 'btn btn-primary'} %>
+
 		<% end %>
 
 		<div id="jobs"><%= render 'jobs' %></div>

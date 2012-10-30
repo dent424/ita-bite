@@ -12,6 +12,9 @@ class EmployeesController < ApplicationController
 		end
 	end
 
+	def disapprove
+		@
+
 	def show
 		@employee=Employee.find(params[:id])
 	end
