@@ -1,2 +1,0 @@
-module SquareIngredientsHelper
-end

@@ -1,2 +1,0 @@
-class SquareIngredientsController < ApplicationController
-end
