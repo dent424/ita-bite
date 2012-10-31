@@ -3,15 +3,15 @@
 	<div class="span8 offset1">
 		
 
-		<h1>Current Jobs</h1>
+		<h1><%=t :jobs %></h1>
 		<%= form_tag jobs_path, :method => 'get', :id => "jobs_search" do %>
 			<div class="control-group">
 				<div class="controls">
 					<%= text_field_tag :search, params[:search] %>
-					<%= submit_tag "Search", :name => nil %>
+					<%= submit_tag t(:search), :name => nil %>
 				</div>
 			</div>
-			<%= link_to "Add Job",  new_job_path(@job), {:class => 'btn btn-primary'} %>
+			<%= link_to t(:add_job),  new_job_path(@job), {:class => 'btn btn-primary'} %>
 
 		<% end %>
 

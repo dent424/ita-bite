@@ -1,7 +1,18 @@
 ItaBite::Application.routes.draw do
 
-  resources :machines
-  resources :employees
+  
+
+  resources :machines do
+    resources :employees do
+      resources :approvals
+    end
+  end
+  
+  resources :employees do
+    resources :machines do
+      resources :approvals
+    end
+  end
 
   resources :jobs do
     resources :items

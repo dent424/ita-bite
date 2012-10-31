@@ -4,12 +4,12 @@
 		<table class="table">
 			<thead>
 				<tr>
-					<th><%= sortable "name", "Name"%></th>
+					<th><%= sortable "name", t(:job_name)%></th>
 					<th><%= sortable "client", "Client" %></th>
-					<th><%= sortable "billing", "Billing" %></th>
-					<th><%= sortable "in_date", "In Date" %></th>
-					<th><%= sortable "target", "target" %></th>
-					<th><%= sortable "actual","Completion" %></th>
+					<th><%= sortable "billing", t(:job_billing) %></th>
+					<th><%= sortable "in_date", t(:job_intake) %></th>
+					<th><%= sortable "target", t(:job_target) %></th>
+					<th><%= sortable "actual",t(:job_complete) %></th>
 					<th> Action </th>
 				</tr>
 			</thead>
@@ -26,7 +26,7 @@
 						<% else %>
 							<%= form_for(job) do |t| %>
 								<%= t.hidden_field :actual, :value => Date.today %>
-								<%= t.submit "Complete Job" %>
+								<%= t.submit t(:complete) %>
 							<% end %>
 						<% end %>
 					</td>

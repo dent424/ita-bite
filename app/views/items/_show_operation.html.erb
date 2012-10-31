@@ -15,8 +15,8 @@
 	<tbody>
 		<% @item.operations.each do |operation| %>
 		<tr>
-			<td><%= operation.name %></td>
-			<td><%= operation.worker %></td>
+			<td><%= operation.approval.machine.name %></td>
+			<td><%= operation.approval.employee.last_name + operation.approval.employee.first_name %></td>
 			<td><%= operation.start %></td>
 			<td><% if operation.end? %>
 					<%= operation.end %>

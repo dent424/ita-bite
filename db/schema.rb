@@ -11,7 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121026070941) do
+ActiveRecord::Schema.define(:version => 20121030064035) do
+
+  create_table "approvals", :force => true do |t|
+    t.integer  "employee_id"
+    t.integer  "machine_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "changes", :force => true do |t|
     t.integer  "count"
@@ -23,13 +30,6 @@ ActiveRecord::Schema.define(:version => 20121026070941) do
   end
 
   add_index "changes", ["ingredient_id"], :name => "index_changes_on_ingredient_id"
-
-  create_table "employee_machines", :force => true do |t|
-    t.integer  "machine_id"
-    t.integer  "employee_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-  end
 
   create_table "employees", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -92,14 +92,15 @@ ActiveRecord::Schema.define(:version => 20121026070941) do
   end
 
   create_table "operations", :force => true do |t|
-    t.string   "name"
-    t.string   "worker"
     t.text     "notes"
     t.datetime "start"
     t.datetime "end"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
     t.integer  "item_id"
+    t.integer  "machine_id"
+    t.integer  "employee_id"
+    t.integer  "approval_id"
   end
 
   create_table "rounds", :force => true do |t|

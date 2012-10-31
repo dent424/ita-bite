@@ -1,7 +1,7 @@
 <body>
 <div class="row">
 		<div class="span7 offset4">
-			<legend>New Job</legend>
+			<legend><%=t :add_job %></legend>
 		</div>
 	</div>
 
@@ -11,7 +11,7 @@
 
 			<div class="control-group">
 				<label class="control-label">
-					Job ID
+					<%=t :job_name %>
 				</label>
 				<div class="controls">
 					<%= f.text_field :name %>
@@ -29,7 +29,7 @@
 
 			<div class="control-group">
 				<label class="control-label">
-					Billing No.
+					<%=t :job_billing %>
 				</label>
 				<div class="controls">
 					<%= f.text_field :billing %>
@@ -38,7 +38,7 @@
 
 			<div class="control-group">
 				<label class="control-label">
-					Description
+					<%=t :notes %>
 				</label>
 				<div class="controls">
 					<%= f.text_area :description, :rows => 5 %>

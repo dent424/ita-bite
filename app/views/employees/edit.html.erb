@@ -28,6 +28,15 @@
 			</div>
 
 			<div class="control-group">
+				<label class="control-label">
+					Approved Machines
+				</label>
+				<div class="controls">
+					<%= f.select :machine_ids, Machine.all.collect{|x| [x.name, x.id]}, {}, :multiple => true %>
+				</div>
+			</div>
+
+			<div class="control-group">
 				<div class="controls">
 					<%= f.submit "Submit", :class => "btn" %>
 				</div>

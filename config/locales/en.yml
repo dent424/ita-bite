@@ -2,4 +2,21 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  jobs: "Current Jobs"
+  machines: "Machines"
+  employees: "Employees"
+  search: "search"
+  complete: "Complete"
+  pieces: "Pieces"
+  notes: "notes"
+  add_job: "Add Job"
+  job_name: "Name"
+  job_billing: "Billing"
+  job_target: "Target"
+  job_complete: "Completion"
+  job_intake: "In Date"
+  item_id: "ID"
+  item_bp: "Blue Print Number"
+
+
+
