@@ -1,8 +1,8 @@
 <div class="row">
 	<div class="span6 offset1">
 		<h1><%= @employee.last_name %><%= @employee.first_name %></h1>
-		<%= link_to "Edit Employee",  edit_employee_path(@employee), {:class => 'btn btn-primary'} %>
-		<%= link_to " Delete",employee_path(@machine), {:confirm => 'Are you sure?', :class => 'btn btn-danger', :method => :delete}  %>
+		<%= link_to t(:edit),  edit_employee_path(@employee), {:class => 'btn btn-primary'} %>
+		<%= link_to t(:delete),employee_path(@machine), {:confirm => 'Are you sure?', :class => 'btn btn-danger', :method => :delete}  %>
 	</div>
 </div>
 <% if @employee.machines.exists? %>
@@ -11,9 +11,9 @@
 			<table class="table">
 				<thead>
 					<tr>
-						<th>Machine</th>
-						<th>Machine Note</th>
-						<th>Action</th>
+						<th><%=t :machines %></th>
+						<th><%=t :notes %></th>
+						<th></th>
 					</tr>
 				</thead>
 				<tbody>
@@ -21,7 +21,7 @@
 					<tr>
 						<td><%= link_to machine.name, machine %></td>
 						<td><%= machine.notes %></td>
-						<td><%= link_to " Delete Machine",employee_machine_approval_path(@employee, machine), {:confirm => 'Are you sure?', :method => :delete}  %></td>
+						<td><%= link_to t(:delete) ,employee_machine_approval_path(@employee, machine), {:confirm => 'Are you sure?', :method => :delete}  %></td>
 					</tr>
 					<% end %>	
 				</tbody>

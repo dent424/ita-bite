@@ -1,20 +1,22 @@
 
-<%= link_to "Add operation",  new_item_operation_path(@item), {:class => 'btn btn-primary'} %>
+<%= link_to t(:operation_add),  new_item_operation_path(@item), {:class => 'btn btn-primary'} %>
 
 <table class="table">
 	<thead>
 		<tr>
-			<th> Name </th>
-			<th> Worker </th>
-			<th> Start </th>
-			<th> End </th>
-			<th> Notes </th>
-			<th> Actions </th>
+			<th> <%=t :operation_process %> </th>
+			<th> <%=t :machine_name %> </th>
+			<th> <%=t :employee_name %> </th>
+			<th> <%=t :operation_start %> </th>
+			<th> <%=t :operation_end %> </th>
+			<th> <%=t :notes %> </th>
+			<th></th>
 		</tr>
 	</thead>
 	<tbody>
 		<% @item.operations.each do |operation| %>
 		<tr>
+			<td><%= operation.approval.machine.machine_type %></td>
 			<td><%= operation.approval.machine.name %></td>
 			<td><%= operation.approval.employee.last_name + operation.approval.employee.first_name %></td>
 			<td><%= operation.start %></td>
@@ -23,15 +25,15 @@
 				<% else %>
 					<%= form_for([@item, operation]) do |t| %>
 						<%= t.hidden_field :end, :value => DateTime.now %>
-						<%= t.submit "Finish" %>
+						<%= t.submit t(:finish) %>
 					<% end %>
 				<% end %>
 			</td>
 			<td>
 				<% operation.notes? ? "None" : "Notes" %>
 			</td>
-			<td><%= link_to "Edit", edit_item_operation_path(@item, operation)%>
-				<%= link_to " Delete",item_operation_path(@item, operation), {:confirm => 'Are you sure?', :method => :delete} %>
+			<td><%= link_to t(:edit), edit_item_operation_path(@item, operation)%>
+				<%= link_to t(:delete),item_operation_path(@item, operation), {:confirm => 'Are you sure?', :method => :delete} %>
 			</td>
 		<tr>
 		<% end %>

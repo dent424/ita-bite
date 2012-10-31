@@ -1,17 +1,162 @@
 ja:
   jobs: "注文"
   machines: "機械管理"
+  machine: "機械"
   employees: "作業者"
   search: "検索"
   complete: "完成"
   pieces: "数量"
-  notes: "備考" 
+  notes: "備考"
+  round_square: "丸/角"
+  edit: "訂正"
+  finish: "完了"
+  delete: "削除" 
+  submit: "入力"
+  client: "取引先"
+  ingredient: "材料"
+  ordered: "注文日"
+  delivered: "配達日"
+  delivery: "配達"
+  operation: "作業"
   add_job: "注文追加"
   job_name: "注文名"
   job_billing: "注文番号" 
   job_target: "希望納期"
   job_complete: "完成日"
   job_intake: "発注日"
+  job_delete: "注文削除"
+  job_edit: "注文訂正"
   item_id: "ID"
   item_name: "品名"
   item_bp: "図面番号"
+  item_add: "部品追加"
+  item_complete: "部品完成日"
+  item_finish: "部品完成"
+  item_edit: "部品訂正"
+  item_delete: "部品削除"
+  clients: "取引先"
+  client_name: "取引先会社名"
+  client_new: "新取引先入力"
+  client_edit: "取引先訂正"
+  client_add: "取引先追加"
+  client_delete: "取引先削除"
+  machine_add: "機械追加"
+  machine_name: "機械名"
+  machine_type: "機械種類"
+  machine_edit: "機械訂正"
+  employee_name: "作業者名"
+  employee_last: "名字"
+  employee_first: "名前"
+  employee_new: "新作業者"
+  employee_edit: "作業者訂正"
+  employee_add: "作業者追加"
+  ingredient_add: "材料注文"
+  ingredient_delete: "材料削除"
+  ingredient_edit: "材料訂正"
+  ingredient_material: "材質"
+  ingredient_diameter: "直径"
+  ingredient_length: "L"
+  ingredient_width: "W"
+  ingredient_depth: "D"
+  operation_add: "作業追加"
+  operation_process: "プロセス"
+  operation_start: "作業開始"
+  operation_end: "作業完了"
+  operation_edit: "作業訂正"
+
+  date:
+    abbr_day_names:
+    - 日
+    - 月
+    - 火
+    - 水
+    - 木
+    - 金
+    - 土
+    abbr_month_names:
+    -
+    - 1月
+    - 2月
+    - 3月
+    - 4月
+    - 5月
+    - 6月
+    - 7月
+    - 8月
+    - 9月
+    - 10月
+    - 11月
+    - 12月
+    day_names:
+    - 日曜日
+    - 月曜日
+    - 火曜日
+    - 水曜日
+    - 木曜日
+    - 金曜日
+    - 土曜日
+    formats:
+      default: ! '%Y/%m/%d'
+      long: ! '%Y年%m月%d日(%a)'
+      short: ! '%m/%d'
+    month_names:
+    -
+    - 1月
+    - 2月
+    - 3月
+    - 4月
+    - 5月
+    - 6月
+    - 7月
+    - 8月
+    - 9月
+    - 10月
+    - 11月
+    - 12月
+    order:
+    - :year
+    - :month
+    - :day
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: 約1時間
+        other: 約%{count}時間
+      about_x_months:
+        one: 約1ヶ月
+        other: 約%{count}ヶ月
+      about_x_years:
+        one: 約1年
+        other: 約%{count}年
+      almost_x_years:
+        one: 1年弱
+        other: ! '%{count}年弱'
+      half_a_minute: 30秒前後
+      less_than_x_minutes:
+        one: 1分以内
+        other: ! '%{count}分以内'
+      less_than_x_seconds:
+        one: 1秒以内
+        other: ! '%{count}秒以内'
+      over_x_years:
+        one: 1年以上
+        other: ! '%{count}年以上'
+      x_days:
+        one: 1日
+        other: ! '%{count}日'
+      x_minutes:
+        one: 1分
+        other: ! '%{count}分'
+      x_months:
+        one: 1ヶ月
+        other: ! '%{count}ヶ月'
+      x_seconds:
+        one: 1秒
+        other: ! '%{count}秒'
+    prompts:
+      day: 日
+      hour: 時
+      minute: 分
+      month: 月
+      second: 秒
+      year: 年

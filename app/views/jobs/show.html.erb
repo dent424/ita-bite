@@ -1,22 +1,25 @@
 <body>
 	<div class="row">
 		<div class="span6 offset1">
-			<h2> <%= @job.name %> (<%= @job.billing %>)</h2>
-			<h3> <%= @job.client %>  </h3>
+			<h2> <%= @job.name %></h2> 					<h4><%= @job.billing %></h4> 
+			<h3><% if @job.client %>
+				 <%= @job.client.name %>  
+				<% end %>
+			</h3>
 			
 			<h4><table class ="table"> 
 				<tbody>
 					<tr>
-						<td> Intake Date: </td>
+						<td><%=t :job_intake %></td>
 						<td> <%= @job.in_date %></td>
 					</tr>
 					<tr>
-						<td> Target Date: </td>
+						<td><%=t :job_target %></td>
 						<td> <%= @job.target %></td>
 					</tr>
 					<% if @job.actual? %>
 						<tr>
-							<td> Completion Date: </td>
+							<td> <%=t :job_complete %> </td>
 							<td> <%= @job.actual %></td>
 						</tr>
 
@@ -31,9 +34,9 @@
 					<% end %>
 				</tbody>
 			</table></h4>
-			<%= link_to "Add Item",  new_job_item_path(@job), {:class => 'btn btn-primary'} %>
-			<%= link_to "Edit Job",  edit_job_path(@job), {:class => 'btn btn-primary'} %>
-			<%= link_to " Delete",job_path(@job), {:confirm => 'Are you sure?', :class => 'btn btn-danger', :method => :delete}  %>
+			<%= link_to t(:item_add),  new_job_item_path(@job), {:class => 'btn btn-primary'} %>
+			<%= link_to t(:job_edit),  edit_job_path(@job), {:class => 'btn btn-primary'} %>
+			<%= link_to t(:job_delete),job_path(@job), {:confirm => 'Are you sure?', :class => 'btn btn-danger', :method => :delete}  %>
 		</div>
 	</div>
 	<p></p>

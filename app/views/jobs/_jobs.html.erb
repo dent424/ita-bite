@@ -5,7 +5,7 @@
 			<thead>
 				<tr>
 					<th><%= sortable "name", t(:job_name)%></th>
-					<th><%= sortable "client", "Client" %></th>
+					<th><%= sortable "client", t(:client) %></th>
 					<th><%= sortable "billing", t(:job_billing) %></th>
 					<th><%= sortable "in_date", t(:job_intake) %></th>
 					<th><%= sortable "target", t(:job_target) %></th>
@@ -17,7 +17,10 @@
 				<% @job.each do |job| %>
 				<tr>
 					<td><%= link_to job.name, job %></td>
-					<td><%= job.client %></td>
+					<td><% if job.client %>
+							<%= link_to job.client.name, job.client %>
+						<% end %>
+						</td>
 					<td><%= job.billing %></td>
 					<td><%= job.in_date %></td>
 					<td><%= job.target %></td>

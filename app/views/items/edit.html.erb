@@ -1,6 +1,6 @@
 <div class="row-fluid">
 		<div class="span7 offset4">
-			<legend>Edit Job</legend>
+			<legend><%=t :item_edit %></legend>
 		</div>
 	</div>
 
@@ -19,7 +19,7 @@
 
 			<div class="control-group">
 				<label class="control-label">
-					Name
+					<%=t :item_name %>
 				</label>
 				<div class="controls">
 					<%= f.text_field :name %>
@@ -28,7 +28,7 @@
 
 			<div class="control-group">
 				<label class="control-label">
-					Pieces
+					<%=t :pieces %>
 				</label>
 				<div class="controls">
 					<%= f.text_field :pieces %>
@@ -37,7 +37,7 @@
 
 			<div class="control-group">
 				<label class="control-label">
-					Blue Print Number
+					<%=t :item_bp %>
 				</label>
 				<div class="controls">
 					<%= f.text_field :blue_print_number %>
@@ -46,7 +46,7 @@
 
 			<div class="control-group">
 				<label class="control-label">
-					Round/Square
+					<%=t :round_square %>
 				</label>
 				<div class="controls">
 					<%= f.text_field :round_square %>
@@ -55,7 +55,7 @@
 
 			<div class="control-group">
 				<label class="control-label">
-					Completion Date
+					<%=t :item_complete %>
 				</label>
 				<div class="controls">
 					<%= f.date_select :completion, :start_year => Time.now.year, :end_year => Time.now.year + 1, :order => [:year, :month, :day], :include_blank => true%>
@@ -64,7 +64,7 @@
 
 			<div class="control-group">
 				<div class="controls">
-					<%= f.submit "Edit", :class => "btn" %>
+					<%= f.submit t(:edit), :class => "btn" %>
 				</div>
 			</div>
 		</div>

@@ -1,0 +1,48 @@
+<div class="row">
+	<div class="span6 offset1">
+		<h2> <%= @client.name %></h2>	
+		<%= link_to t(:add_job),  new_client_job_path(@client), {:class => 'btn btn-primary'} %>
+		<%= link_to t(:client_edit),  edit_client_path(@client), {:class => 'btn btn-primary'} %>
+		<%= link_to t(:client_delete),client_path(@client), {:confirm => 'Are you sure?', :class => 'btn btn-danger', :method => :delete}  %>
+	</div>
+</div>
+
+<div class="row">
+	<div class="span6 offset1">
+		<h2><%=t :jobs %></h2>
+			<table class ="table"> 
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th><%=t :job_name %></th>
+						<th><%=t :job_billing %></th>
+						<th><%=t :job_target %></th>
+						<th><%=t :job_complete %></th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<% @client.jobs.each do |job| %>
+					<tr>
+						<td><%=link_to job.name, job %></td>
+						<td><%=job.billing%></td>
+						<td><%=job.target%></td>
+						<td>
+							<% if job.actual? %>
+								<%=job.actual%>
+							<% else %>
+								<%= form_for([job]) do |t| %>
+									<%= t.hidden_field :actual, :value => Date.today %>
+									<%= t.submit t(:job_complete) %>
+								<% end %>
+							<% end %>
+						</td>
+						<td>
+							<%= link_to t(:edit), edit_job_path(job) %>  <%= link_to t(:delete), job_path(job), :confirm => 'Are you sure?', :method => :delete %>
+						</td>
+					</tr>
+					<% end %>
+				</tbody>
+			</table>
+	</div>
+</div>

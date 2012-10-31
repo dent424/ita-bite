@@ -16,7 +16,7 @@ class JobsController < ApplicationController
 	def update
 		@job = Job.find(params[:id])
 		if @job.update_attributes(params[:job])
-			redirect_to job_path(@job)
+			redirect_to @job.client
 		else
 			redirect_to job_path(@job)
 		end

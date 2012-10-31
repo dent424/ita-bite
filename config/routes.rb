@@ -1,31 +1,38 @@
 ItaBite::Application.routes.draw do
 
-  
+  scope "(:locale)", :locale => /en|ja/ do  
+  #changes routing to /en/url
 
-  resources :machines do
-    resources :employees do
-      resources :approvals
+    resources :clients do
+      resources :jobs
     end
-  end
-  
-  resources :employees do
+
     resources :machines do
-      resources :approvals
+      resources :employees do
+        resources :approvals
+      end
     end
-  end
+    
+    resources :employees do
+      resources :machines do
+        resources :approvals
+      end
+    end
 
-  resources :jobs do
-    resources :items
-  end
+    resources :jobs do
+      resources :items
+    end
 
-  resources :items do
-    resources :operations
-    resources :rounds
-    resources :squares
-  end
+    resources :items do
+      resources :operations
+      resources :rounds
+      resources :squares
+    end
 
-  resources :ingredients do
-    resources :changes
+    resources :ingredients do
+      resources :changes
+    end
+
   end
 
   # The priority is based upon order of creation:

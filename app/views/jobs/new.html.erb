@@ -20,10 +20,10 @@
 
 			<div class="control-group">
 				<label class="control-label">
-					Client
+					<%=t :client %>
 				</label>
 				<div class="controls">
-					<%= f.text_field :client %>
+					<%= f.select :client_id, Client.all.collect{|x| [x.name, x.id]}, {} %>
 				</div>
 			</div>
 
@@ -48,7 +48,7 @@
 
 			<div class="control-group">
 				<label class="control-label">
-					Intake Date
+					<%=t :job_intake %>
 				</label>
 				<div class="controls">
 					<%= f.date_select :in_date, :start_year => Time.now.year - 1, :end_year => Time.now.year, :order => [:year, :month, :day]%>
@@ -57,7 +57,7 @@
 
 			<div class="control-group">
 				<label class="control-label">
-					Target Date
+					<%=t :job_target %>
 				</label>
 				<div class="controls">
 					<%= f.date_select :target, :start_year => Time.now.year, :end_year => Time.now.year + 1, :order => [:year, :month, :day]%>
@@ -67,11 +67,20 @@
 			
 			<%= f.fields_for :items do |item_form| %>
 
-				<legend> Item </legend>
+				<legend><%=t :item_add %></legend>
 
 				<div class="control-group">
 					<label class="control-label">
-						Name
+						ID
+					</label>
+					<div class="controls">
+						<%= item_form.text_field :identification %>
+					</div>
+				</div>
+
+				<div class="control-group">
+					<label class="control-label">
+						<%=t :item_name %>
 					</label>
 					<div class="controls">
 						<%= item_form.text_field :name %>
@@ -80,7 +89,7 @@
 
 				<div class="control-group">
 					<label class="control-label">
-						Pieces
+						<%=t :pieces %>
 					</label>
 					<div class="controls">
 						<%= item_form.text_field :pieces %>
@@ -89,7 +98,7 @@
 
 				<div class="control-group">
 					<label class="control-label">
-						Blue Print Number
+						<%=t :item_bp %>
 					</label>
 					<div class="controls">
 						<%= item_form.text_field :blue_print_number %>
@@ -98,27 +107,27 @@
 
 				<div class="control-group">
 					<label class="control-label">
-						Shape
+						<%=t :round_square %>
 					</label>
 					<div class="controls">
 						<%= item_form.text_field :round_square %>
 					</div>
 				</div>
 
-				<%= item_form.link_to_remove "Remove this item" %>
+				<%= item_form.link_to_remove t(:item_delete) %>
 
 
 			<% end %>
 
 
 				<div class="row">
-					<%= f.link_to_add "Add an item", :items %>
+					<%= f.link_to_add t(:item_add), :items %>
 				</div>
 			
 
 			<div class="control-group">
 				<div class="controls">
-					<%= f.submit "Submit", :class => "btn" %>
+					<%= f.submit t(:submit), :class => "btn" %>
 				</div>
 			</div>
 		</div>

@@ -1,7 +1,7 @@
 
 <div class="row">
 	<div class="span7 offset4">
-		<legend>New Machine</legend>
+		<legend><%=t :machine_add %></legend>
 	</div>
 </div>
 
@@ -11,7 +11,7 @@
 
 		<div class="control-group">
 			<label class="control-label">
-				Machine Type
+				<%=t :machine_type %>
 			</label>
 			<div class="controls">
 				<%= f.select :machine_type, options_for_select([["VMC","vmc"],["Manual Milling", "milling"],["Manual Lathe","lathe"],["Surface Grinding","sgrind"],["Cylindrical Grinding","cgrind"],["Drill Press","press","Wire EDM","edm"],["Other","other"]]) %>
@@ -20,7 +20,7 @@
 		
 		<div class="control-group">
 			<label class="control-label">
-				Name
+				<%=t :machine_name %>
 			</label>
 			<div class="controls">
 				<%= f.text_field :name %>
@@ -29,7 +29,7 @@
 
 		<div class="control-group">
 			<label class="control-label">
-				Notes
+				<%=t :notes %>
 			</label>
 			<div class="controls">
 				<%= f.text_field :notes %>
@@ -38,7 +38,7 @@
 
 		<div class="control-group">
 			<label class="control-label">
-				Approved Employees
+				<%=t :employees %>
 			</label>
 			<div class="controls">
 				<%= f.select :employee_ids, Employee.all.collect{|x| [x.last_name, x.id]}, {}, :multiple => true %>
@@ -47,7 +47,7 @@
 
 		<div class="control-group">
 			<div class="controls">
-				<%= f.submit "Submit", :class => "btn" %>
+				<%= f.submit t(:submit), :class => "btn" %>
 			</div>
 		</div>
 	</div>

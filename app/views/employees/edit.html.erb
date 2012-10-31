@@ -1,7 +1,7 @@
 <body>
 	<div class="row">
 		<div class="span7 offset4">
-			<legend>Edit Employee</legend>
+			<legend><%=t :employee_edit %></legend>
 		</div>
 	</div>
 
@@ -11,7 +11,7 @@
 
 			<div class="control-group">
 				<label class="control-label">
-					First Name
+					<%=t :employee_first %>
 				</label>
 				<div class="controls">
 					<%= f.text_field :first_name %>
@@ -20,7 +20,7 @@
 			
 			<div class="control-group">
 				<label class="control-label">
-					Last Name
+					<%=t :employee_last %>
 				</label>
 				<div class="controls">
 					<%= f.text_field :last_name %>
@@ -29,7 +29,7 @@
 
 			<div class="control-group">
 				<label class="control-label">
-					Approved Machines
+					<%=t :machine %>
 				</label>
 				<div class="controls">
 					<%= f.select :machine_ids, Machine.all.collect{|x| [x.name, x.id]}, {}, :multiple => true %>
@@ -38,7 +38,7 @@
 
 			<div class="control-group">
 				<div class="controls">
-					<%= f.submit "Submit", :class => "btn" %>
+					<%= f.submit t(:submit), :class => "btn" %>
 				</div>
 			</div>
 		</div>

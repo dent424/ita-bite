@@ -1,0 +1,23 @@
+<div class="row">
+	<div class="span8 offset1">
+		<h1><%=t :clients %></h1>
+		<%= link_to t(:client_add),  new_client_path, {:class => 'btn btn-primary'} %>
+		
+			<table class="table">
+				<thead>
+					<tr>
+						<th><%=t :client_name %></th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<% @client.each do |client| %>
+					<tr>
+						<td><%= link_to client.name, client %></td>
+						<td><%=link_to t(:edit), edit_client_path(client)%> <%=link_to t(:delete),client_path(client), {:confirm => 'Are you sure?', :method => :delete} %></td>
+					</tr>
+					<% end %>	
+				</tbody>
+			</table>
+	</div>
+</div>

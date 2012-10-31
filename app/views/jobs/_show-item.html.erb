@@ -3,12 +3,12 @@
 				<thead>
 					<tr>
 						<th>ID</th>
-						<th>Name</th>
-						<th>Pieces</th>
-						<th>Blue Print #</th>
-						<th>Round/Square</th>
-						<th>Completion</th>
-						<th>Action</th>
+						<th><%=t :item_name %></th>
+						<th><%=t :pieces %></th>
+						<th><%=t :item_bp %></th>
+						<th><%=t :round_square %></th>
+						<th><%=t :item_complete %></th>
+						<th></th>
 					</tr>
 				</thead>
 				<tbody>
@@ -25,12 +25,12 @@
 							<% else %>
 								<%= form_for([@job,item]) do |t| %>
 									<%= t.hidden_field :completion, :value => Date.today %>
-									<%= t.submit "Finish Item" %>
+									<%= t.submit t(:item_finish) %>
 								<% end %>
 							<% end %>
 						</td>
 						<td>
-							<%= link_to "Edit", edit_job_item_path(@job, item) %><%= link_to " Delete", job_item_path(@job, item), :confirm => 'Are you sure?', :method => :delete %>
+							<%= link_to t(:edit), edit_job_item_path(@job, item) %>  <%= link_to t(:delete), job_item_path(@job, item), :confirm => 'Are you sure?', :method => :delete %>
 						</td>
 					</tr>
 					<% end %>

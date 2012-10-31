@@ -1,7 +1,7 @@
 <body>
 	<div class="row">
 		<div class="span7 offset4">
-			<legend>New Operation</legend>
+			<legend><%=t :operation_add %></legend>
 		</div>
 	</div>
 
@@ -11,7 +11,7 @@
 
 			<div class="control-group">
 				<label class="control-label">
-					Approval
+					<%=t :employees %>
 				</label>
 				<div class="controls">
 					<%= f.select :approval_id, Approval.all.collect{|x| [x.machine.name + "-" +x.employee.first_name+x.employee.last_name, x.id]}, {} %>
@@ -20,7 +20,7 @@
 
 			<div class="control-group">
 				<label class="control-label">
-					Notes
+					<%=t :notes %>
 				</label>
 				<div class="controls">
 					<%= f.text_field :notes %>
@@ -29,7 +29,7 @@
 
 			<div class="control-group">
 				<label class="control-label">
-					Start
+					<%=t :operation_start %>
 				</label>
 				<div class="controls">
 					<%= f.datetime_select :start, :start_year => Time.now.year - 1, :end_year => Time.now.year, :order => [:year, :month, :day]%>
@@ -38,7 +38,7 @@
 
 			<div class="control-group">
 				<div class="controls">
-					<%= f.submit "Submit", :class => "btn" %>
+					<%= f.submit t(:submit), :class => "btn" %>
 				</div>
 			</div>
 		</div>

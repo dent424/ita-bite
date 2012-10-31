@@ -1,14 +1,14 @@
 
 <div class="row">
 	<div class="span8 offset1">
-		<h1>Machines</h1>
-		<%= link_to "Add Machine",  new_machine_path, {:class => 'btn btn-primary'} %>
+		<h1><%=t :machines %></h1>
+		<%= link_to t(:machine_add),  new_machine_path, {:class => 'btn btn-primary'} %>
 		<table class="table">
 			<thead>
 				<tr>
-					<th>Type</th>
-					<th>Name</th>
-					<th>Action</th>
+					<th><%=t :machine_name %></th>
+					<th><%=t :machine_type %></th>
+					<th></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -16,7 +16,7 @@
 				<tr>
 					<td><%= link_to machine.name, machine %></td>
 					<td><%= machine.machine_type %></td>
-					<td><%=link_to "Edit", edit_machine_path(machine)%> <%=link_to "Delete",machine_path(machine), {:confirm => 'Are you sure?', :method => :delete} %>
+					<td><%=link_to t(:edit), edit_machine_path(machine)%> <%=link_to t(:delete),machine_path(machine), {:confirm => 'Are you sure?', :method => :delete} %>
 					</td>
 				</tr>
 				<% end %>	

@@ -1,7 +1,7 @@
 <body>
 <div class="row">
 		<div class="span7 offset4">
-			<legend>New Job</legend>
+			<legend><%=t :job_edit %></legend>
 		</div>
 	</div>
 
@@ -11,7 +11,7 @@
 
 			<div class="control-group">
 				<label class="control-label">
-					Job ID
+					<%=t :job_name %>
 				</label>
 				<div class="controls">
 					<%= f.text_field :name %>
@@ -20,16 +20,16 @@
 
 			<div class="control-group">
 				<label class="control-label">
-					Client
+					<%=t :client %>
 				</label>
 				<div class="controls">
-					<%= f.text_field :client %>
+					<%= f.select :client_id, Client.all.collect{|x| [x.name, x.id]}, {} %>
 				</div>
 			</div>
 
 			<div class="control-group">
 				<label class="control-label">
-					Billing No.
+					<%=t :job_billing %>
 				</label>
 				<div class="controls">
 					<%= f.text_field :billing %>
@@ -38,7 +38,7 @@
 
 			<div class="control-group">
 				<label class="control-label">
-					Description
+					<%=t :notes %>
 				</label>
 				<div class="controls">
 					<%= f.text_area :description, :rows => 5 %>
@@ -48,7 +48,7 @@
 
 			<div class="control-group">
 				<label class="control-label">
-					Intake Date
+					<%=t :job_intake %>
 				</label>
 				<div class="controls">
 					<%= f.date_select :in_date, :start_year => Time.now.year - 1, :end_year => Time.now.year, :order => [:year, :month, :day]%>
@@ -57,7 +57,7 @@
 
 			<div class="control-group">
 				<label class="control-label">
-					Target Date
+					<%=t :job_target %>
 				</label>
 				<div class="controls">
 					<%= f.date_select :target, :start_year => Time.now.year, :end_year => Time.now.year + 1, :order => [:year, :month, :day]%>
@@ -66,7 +66,7 @@
 
 			<div class="control-group">
 				<label class="control-label">
-					Completion
+					:<%=t :job_complete %>
 				</label>
 				<div class="controls">
 					<%= f.date_select :actual, :start_year => Time.now.year - 1 , :end_year => Time.now.year, :order => [:year, :month, :day], :include_blank => true %>
@@ -75,7 +75,7 @@
 
 			<div class="control-group">
 				<div class="controls">
-					<%= f.submit "Edit", :class => "btn" %>
+					<%= f.submit t(:edit), :class => "btn" %>
 				</div>
 			</div>
 		</div>

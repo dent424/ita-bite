@@ -1,14 +1,14 @@
 <% @item.rounds.each do |round| %>
-	<h4>Ingredients: <%= round.material%>  <%=round.length%>mm X <%=round.diameter%>Ф - <%=round.pieces%>P </h4>
-	<h5>Ordered: <%= round.order_date %> </h5>
+	<h4><%=t :ingredient %>: <%= round.material%>  <%=round.length%>mm X <%=round.diameter%>Ф - <%=round.pieces%>P </h4>
+	<h5><%=t :ordered %>: <%= round.order_date %> </h5>
 	<% if round.delivery_date? %>
-		<h5>Delivered <%= round.delivery_date %> </h5>
+		<h5><%=t :delivered %> <%= round.delivery_date %> </h5>
 	<% else %>
 		<%= form_for([@item, round]) do |t| %>
 			<%= t.hidden_field :delivery_date, :value => Date.today %>
-			<%= t.submit "Delivered" %>
+			<%= t.submit t(:delivery) %>
 		<% end %>
 	<% end %>
-	<%= link_to "Edit Ingredient",  edit_item_round_path(@item, round), {:class => 'btn btn-primary'} %>
-	<%= link_to " Delete Ingredient",item_round_path(@item, round), {:confirm => 'Are you sure?', :class => 'btn btn-danger', :method => :delete}  %>
+	<%= link_to t(:ingredient_edit),  edit_item_round_path(@item, round), {:class => 'btn btn-primary'} %>
+	<%= link_to t(:ingredient_delete),item_round_path(@item, round), {:confirm => 'Are you sure?', :class => 'btn btn-danger', :method => :delete}  %>
 <% end %>

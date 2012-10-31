@@ -1,13 +1,13 @@
 <div class="row">
 	<div class="span8 offset1">
-		<h1>Employees</h1>
-		<%= link_to "Add Employee",  new_employee_path, {:class => 'btn btn-primary'} %>
+		<h1><%=t :employees %></h1>
+		<%= link_to t(:employee_add),  new_employee_path, {:class => 'btn btn-primary'} %>
 		<table class="table">
 			<thead>
 				<tr>
-					<th>Last Name</th>
-					<th>First Name</th>
-					<th>Action</th>
+					<th><%=t :employee_last %></th>
+					<th><%=t :employee_first %></th>
+					<th></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -15,7 +15,7 @@
 				<tr>
 					<td><%= link_to employee.last_name, employee %></td>
 					<td><%= link_to employee.first_name, employee %></td>
-					<td><%=link_to "Edit", edit_employee_path(employee)%> <%=link_to "Delete",employee_path(employee), {:confirm => 'Are you sure?', :method => :delete} %></td>
+					<td><%=link_to t(:edit), edit_employee_path(employee)%> <%=link_to t(:delete),employee_path(employee), {:confirm => 'Are you sure?', :method => :delete} %></td>
 				</tr>
 				<% end %>	
 			</tbody>

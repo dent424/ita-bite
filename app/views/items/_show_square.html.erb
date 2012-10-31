@@ -1,14 +1,14 @@
 <% @item.squares.each do |square| %>
-	<h4>Ingredients: <%= square.material%>  <%=square.thickness%>mm X <%=square.width%>mm X <%= square.length %> - <%=square.pieces%>P </h4>
-	<h5>Ordered: <%= square.order_date %> </h5>
+	<h4><%=t :ingredient %>: <%= square.material%>  <%=square.thickness%>mm X <%=square.width%>mm X <%= square.length %> - <%=square.pieces%>P </h4>
+	<h5><%=t :ordered %>: <%= square.order_date %> </h5>
 	<% if square.delivery_date? %>
-		<h5>Delivered <%= square.delivery_date %> </h5>
+		<h5><%=t :delivered %> <%= square.delivery_date %> </h5>
 	<% else %>
 		<%= form_for([@item, square]) do |t| %>
 			<%= t.hidden_field :delivery_date, :value => Date.today %>
-			<%= t.submit "Delivered" %>
+			<%= t.submit t(:delivery) %>
 		<% end %>
 	<% end %>
-	<%= link_to "Edit Ingredient",  edit_item_square_path(@item, square), {:class => 'btn btn-primary'} %>
-	<%= link_to " Delete Ingredient",item_square_path(@item, square), {:confirm => 'Are you sure?', :class => 'btn btn-danger', :method => :delete}  %>
+	<%= link_to t(:ingredient_edit),  edit_item_square_path(@item, square), {:class => 'btn btn-primary'} %>
+	<%= link_to t(:ingredient_delete),item_square_path(@item, square), {:confirm => 'Are you sure?', :class => 'btn btn-danger', :method => :delete}  %>
 <% end %>

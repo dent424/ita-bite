@@ -1,7 +1,7 @@
 <body>
 	<div class="row">
 		<div class="span7 offset4">
-			<legend>Edit Ingredient Order</legend>
+			<legend><%=t :ingredient_edit %></legend>
 		</div>
 	</div>
 
@@ -11,7 +11,7 @@
 
 			<div class="control-group">
 				<label class="control-label">
-					Material
+					<%=t :ingredient_material %>
 				</label>
 				<div class="controls">
 					<%= f.text_field :material %>
@@ -20,7 +20,7 @@
 
 			<div class="control-group">
 				<label class="control-label">
-					Length
+					<%=t :ingredient_length %>
 				</label>
 				<div class="controls">
 					<%= f.text_field :length %>
@@ -29,7 +29,7 @@
 
 			<div class="control-group">
 				<label class="control-label">
-					Diameter
+					<%=t :ingredient_diameter %>
 				</label>
 				<div class="controls">
 					<%= f.text_field :diameter %>
@@ -38,7 +38,7 @@
 
 			<div class="control-group">
 				<label class="control-label">
-					Number
+					<%=t :pieces %>
 				</label>
 				<div class="controls">
 					<%= f.text_field :pieces %>
@@ -47,7 +47,7 @@
 
 			<div class="control-group">
 				<label class="control-label">
-					Order Date
+					<%=t :ordered %>
 				</label>
 				<div class="controls">
 					<%= f.date_select :order_date, :start_year => Time.now.year - 1, :end_year => Time.now.year, :order => [:year, :month, :day]%>
@@ -56,7 +56,7 @@
 			
 			<div class="control-group">
 				<label class="control-label">
-					Delivery Date
+					<%=t :delivered %>
 				</label>
 				<div class="controls">
 					<%= f.date_select :delivery_date, :start_year => Time.now.year - 1, :end_year => Time.now.year, :order => [:year, :month, :day], :include_blank => true %>
