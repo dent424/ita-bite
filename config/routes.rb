@@ -1,9 +1,19 @@
 ItaBite::Application.routes.draw do
 
+  
+
   scope "(:locale)", :locale => /en|ja/ do  
   #changes routing to /en/url
 
+
     resources :subcontractors 
+    resources :users
+    resources :sessions, only: [:new, :create, :destroy]
+    
+    match '/signup', to: 'users#new'
+    match '/signin', to: 'sessions#new'
+    match '/signout', to: 'sessions#destroy', via: :delete
+
 
     resources :clients do
       resources :jobs

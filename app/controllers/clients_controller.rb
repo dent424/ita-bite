@@ -1,4 +1,5 @@
 class ClientsController < ApplicationController
+	before_filter :signed_in_user
 	def new
 		@client=Client.new		
 	end
@@ -38,6 +39,11 @@ class ClientsController < ApplicationController
 	def show
 		@client = Client.find(params[:id])
 	end
+
+	private
+	    def signed_in_user
+	      redirect_to signin_url, notice: "Please sign in" unless signed_in?
+	    end
 
 
 end
