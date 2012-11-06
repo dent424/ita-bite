@@ -3,6 +3,8 @@ ItaBite::Application.routes.draw do
   scope "(:locale)", :locale => /en|ja/ do  
   #changes routing to /en/url
 
+    resources :subcontractors 
+
     resources :clients do
       resources :jobs
     end
@@ -27,6 +29,7 @@ ItaBite::Application.routes.draw do
       resources :operations
       resources :rounds
       resources :squares
+      resources :subcontracts
     end
 
     resources :ingredients do

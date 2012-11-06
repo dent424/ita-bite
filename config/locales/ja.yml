@@ -18,6 +18,7 @@ ja:
   delivered: "配達日"
   delivery: "配達"
   operation: "作業"
+  subcontractor: "下受"
   add_job: "注文追加"
   job_name: "注文名"
   job_billing: "注文番号" 
@@ -63,6 +64,14 @@ ja:
   operation_start: "作業開始"
   operation_end: "作業完了"
   operation_edit: "作業訂正"
+  subcontractor_new: "下受追加"
+  subcontractor_name: "下受名"
+  subcontractor_edit: "下受訂正"
+  subcontractor_delete: "下受削除"
+  subcontract_add: "下受作業追加"
+  subcontract_out_date: "出"
+  subcontract_estimate_date: "予想納入日"
+  subcontract_end_date: "入"
 
   date:
     abbr_day_names:

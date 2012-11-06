@@ -1,0 +1,52 @@
+<div class="row">
+	<div class="span6 offset1">
+		<h2> <%= @subcontractor.name %></h2>	
+		<%= link_to t(:subcontractor_edit),  edit_client_path(@subcontractor), {:class => 'btn btn-primary'} %>
+		<%= link_to t(:subcontractor_delete),client_path(@subcontractor), {:confirm => 'Are you sure?', :class => 'btn btn-danger', :method => :delete}  %>
+	</div>
+</div>
+
+<% if @subcontractor.subcontracts[0] %>
+	<div class="row">
+		<div class="span6 offset1">
+			<h2><%=t :items %></h2>
+			<table class ="table"> 
+				<thead>
+					<tr>
+						<th><%=t :job_name %></th>
+						<th><%=t :item_id %></th>
+						<th><%=t :item_name %></th>
+						<th><%=t :item_out %></th>
+						<th><%=t :item_estimate %></th>
+						<th><%=t :item_in %></th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<% @subcontractor.subcontracts.each do |subcontract| %>
+					<tr>
+						<td><%=link_to subcontract.item.job.name, subcontract.item.job %></td>
+						<td><%=subcontract.item.identification%></td>
+						<td><%=subcontract.item.name%></td>
+						<td><%=subcontract.out%></td>
+						<td><%=subcontract.estimated%></td>
+						<td>
+							<% if subcontract.in? %>
+								<%=subcontract.in%>
+							<% else %>
+								<%= form_for([subcontract]) do |t| %>
+									<%= t.hidden_field :in, :value => Date.today %>
+									<%= t.submit t(:subcontract_complete) %>
+								<% end %>
+							<% end %>
+						</td>
+						<td>
+							<%= link_to t(:edit), edit_subcontract_path(subcontract) %>  <%= link_to t(:delete), subcontract_path(subcontract), :confirm => 'Are you sure?', :method => :delete %>
+						</td>
+					</tr>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
+	</div>
+<% end %>

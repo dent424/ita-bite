@@ -1,0 +1,57 @@
+<body>
+	<div class="row">
+		<div class="span7 offset4">
+			<legend><%=t :subcontract_add %></legend>
+		</div>
+	</div>
+
+	<div class="row-fluid">
+		<div class="span6 offset3">
+			<%= form_for([@item, @subcontract], :html=> {:class => 'form-horizontal'}) do |f| %>
+
+			<div class="control-group">
+				<label class="control-label">
+					<%=t :subcontractors %>
+				</label>
+				<div class="controls">
+					<%= f.select :subcontractor_id, Subcontractor.all.collect{|x| [x.name, x.id]}, {} %>
+				</div>
+			</div>
+
+			<div class="control-group">
+				<label class="control-label">
+					<%=t :notes %>
+				</label>
+				<div class="controls">
+					<%= f.text_field :notes %>
+				</div>
+			</div>
+
+			<div class="control-group">
+				<label class="control-label">
+					<%=t :subcontract_out_date %>
+				</label>
+				<div class="controls">
+					<%= f.date_select :out, :start_year => Time.now.year - 1, :end_year => Time.now.year, :order => [:year, :month, :day]%>
+				</div>
+			</div>
+
+			<div class="control-group">
+				<label class="control-label">
+					<%=t :subcontract_estimate_date %>
+				</label>
+				<div class="controls">
+					<%= f.date_select :estimated, :start_year => Time.now.year - 1, :end_year => Time.now.year, :order => [:year, :month, :day]%>
+				</div>
+			</div>
+
+			<div class="control-group">
+				<div class="controls">
+					<%= f.submit t(:submit), :class => "btn" %>
+				</div>
+			</div>
+		</div>
+	<div>
+</body>
+
+<% end %>

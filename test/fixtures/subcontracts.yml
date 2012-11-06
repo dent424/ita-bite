@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  subcontractor_id: 1
+  item_id: 1
+  out: 2012-11-05
+  in: 2012-11-05
+  estimated: 2012-11-05
+  notes: MyText
+
+two:
+  subcontractor_id: 1
+  item_id: 1
+  out: 2012-11-05
+  in: 2012-11-05
+  estimated: 2012-11-05
+  notes: MyText

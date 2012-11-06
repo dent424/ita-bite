@@ -1,0 +1,23 @@
+<div class="row">
+	<div class="span8 offset1">
+		<h1><%=t :subcontractors %></h1>
+		<%= link_to t(:subcontractor_new),  new_subcontractor_path, {:class => 'btn btn-primary'} %>
+		
+		<table class="table">
+			<thead>
+				<tr>
+					<th><%=t :subcontractor_name %></th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @subcontractor.each do |subcontractor| %>
+				<tr>
+					<td><%= link_to subcontractor.name, subcontractor %></td>
+					<td><%=link_to t(:edit), edit_subcontractor_path(subcontractor)%> <%=link_to t(:delete),subcontractor_path(subcontractor), {:confirm => 'Are you sure?', :method => :delete} %></td>
+				</tr>
+				<% end %>	
+			</tbody>
+		</table>
+	</div>
+</div>

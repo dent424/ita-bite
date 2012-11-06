@@ -1,0 +1,41 @@
+<hr>
+<%= link_to t(:subcontract_add),  new_item_subcontract_path(@item), {:class => 'btn btn-primary'} %>
+<p></p>
+<% if @item.subcontracts[0] %>
+	<table class="table">
+		<thead>
+			<tr>
+				<th> <%=t :subcontractor_name %> </th>
+				<th> <%=t :subcontract_out_date %> </th>
+				<th> <%=t :subcontract_estimate_date %> </th>
+				<th> <%=t :subcontract_end_date %> </th>
+				<th> <%=t :notes %> </th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @item.subcontracts.each do |subcontract| %>
+			<tr>
+				<td><%= subcontract.subcontractor.name %></td>
+				<td><%= subcontract.out %></td>
+				<td><%= subcontract.estimated %></td>
+				<td><% if subcontract.in? %>
+						<%= subcontract.in %>
+					<% else %>
+						<%= form_for([@item, subcontract]) do |t| %>
+							<%= t.hidden_field :in, :value => DateTime.now %>
+							<%= t.submit t(:finish) %>
+						<% end %>
+					<% end %>
+				</td>
+				<td>
+					<%= subcontract.notes %>
+				</td>
+				<td><%= link_to t(:edit), edit_item_subcontract_path(@item, subcontract)%>
+					<%= link_to t(:delete),item_subcontract_path(@item, subcontract), {:confirm => 'Are you sure?', :method => :delete} %>
+				</td>
+			<tr>
+			<% end %>
+		</tbody>
+	</table>
+<% end %>

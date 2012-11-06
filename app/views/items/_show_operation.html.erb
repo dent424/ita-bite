@@ -1,41 +1,43 @@
 
 <%= link_to t(:operation_add),  new_item_operation_path(@item), {:class => 'btn btn-primary'} %>
 
-<table class="table">
-	<thead>
-		<tr>
-			<th> <%=t :operation_process %> </th>
-			<th> <%=t :machine_name %> </th>
-			<th> <%=t :employee_name %> </th>
-			<th> <%=t :operation_start %> </th>
-			<th> <%=t :operation_end %> </th>
-			<th> <%=t :notes %> </th>
-			<th></th>
-		</tr>
-	</thead>
-	<tbody>
-		<% @item.operations.each do |operation| %>
-		<tr>
-			<td><%= operation.approval.machine.machine_type %></td>
-			<td><%= operation.approval.machine.name %></td>
-			<td><%= operation.approval.employee.last_name + operation.approval.employee.first_name %></td>
-			<td><%= operation.start %></td>
-			<td><% if operation.end? %>
-					<%= operation.end %>
-				<% else %>
-					<%= form_for([@item, operation]) do |t| %>
-						<%= t.hidden_field :end, :value => DateTime.now %>
-						<%= t.submit t(:finish) %>
+<% if @item.operations[0]%>
+	<table class="table">
+		<thead>
+			<tr>
+				<th> <%=t :operation_process %> </th>
+				<th> <%=t :machine_name %> </th>
+				<th> <%=t :employee_name %> </th>
+				<th> <%=t :operation_start %> </th>
+				<th> <%=t :operation_end %> </th>
+				<th> <%=t :notes %> </th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @item.operations.each do |operation| %>
+			<tr>
+				<td><%= operation.approval.machine.machine_type %></td>
+				<td><%= operation.approval.machine.name %></td>
+				<td><%= operation.approval.employee.last_name + operation.approval.employee.first_name %></td>
+				<td><%= operation.start %></td>
+				<td><% if operation.end? %>
+						<%= operation.end %>
+					<% else %>
+						<%= form_for([@item, operation]) do |t| %>
+							<%= t.hidden_field :end, :value => DateTime.now %>
+							<%= t.submit t(:finish) %>
+						<% end %>
 					<% end %>
-				<% end %>
-			</td>
-			<td>
-				<% operation.notes? ? "None" : "Notes" %>
-			</td>
-			<td><%= link_to t(:edit), edit_item_operation_path(@item, operation)%>
-				<%= link_to t(:delete),item_operation_path(@item, operation), {:confirm => 'Are you sure?', :method => :delete} %>
-			</td>
-		<tr>
-		<% end %>
-	</tbody>
-</table>
+				</td>
+				<td>
+					<% operation.notes? ? "None" : "Notes" %>
+				</td>
+				<td><%= link_to t(:edit), edit_item_operation_path(@item, operation)%>
+					<%= link_to t(:delete),item_operation_path(@item, operation), {:confirm => 'Are you sure?', :method => :delete} %>
+				</td>
+			<tr>
+			<% end %>
+		</tbody>
+	</table>
+<% end %>
