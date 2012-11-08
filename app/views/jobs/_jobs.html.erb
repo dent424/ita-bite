@@ -6,7 +6,7 @@
 				<tr>
 					<th><%= sort_link(@search, :name, t(:job_name))%></th>
 					<th> <%=t :client %> </th>
-					<th><%= sort_link(@search, :client, t(:contact))%>
+					<th><%= sort_link(@search, :contact, t(:contact))%>
 					<th><%=t :job_billing %></th>
 					<th><%= sort_link(@search, :in_date, t(:job_intake))%>
 					<th><%= sort_link(@search, :target, t(:job_target))%>
@@ -22,7 +22,7 @@
 							<%= link_to job.client.name, job.client %>
 						<% end %>
 						</td>
-					<td><%= link_to job.client, job %></td>
+					<td><%=job.contact%></td>
 					<td><%= link_to job.billing, job %></td>
 					<td><%= job.in_date %></td>
 					<td><%= job.target %></td>
