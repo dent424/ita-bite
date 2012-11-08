@@ -4,16 +4,24 @@
 		
 
 		<h1><%=t :jobs %></h1>
-		<%= form_tag jobs_path, :method => 'get', :id => "jobs_search" do %>
-			<div class="control-group">
-				<div class="controls">
-					<%= text_field_tag :search, params[:search] %>
-					<%= submit_tag t(:search), :name => nil %>
+		<%= search_form_for @search do |f| %>
+			<%= f.condition_fields do |c| %>
+				<div class="field">
+					<div class ="styled-select">
+						<%= c.attribute_fields do |a| %>
+							<%= a.attribute_select associations: [:client] %>
+						<% end %>
+						<%= c.predicate_select({only: [:eq]})%>
+						<%= c.value_fields do |v| %>
+							<%= v.text_field :value %>
+						<% end %>
+						<%= f.submit "Search", :class => "btn" %>
+					</div>
 				</div>
-			</div>
-			<%= link_to t(:add_job),  new_job_path, {:class => 'btn btn-primary'} %>
-
+			<% end %>
 		<% end %>
+
+		<%= link_to t(:add_job),  new_job_path, {:class => 'btn btn-primary'} %>
 
 		<div id="jobs"><%= render 'jobs' %></div>
 

@@ -1,4 +1,5 @@
 ja:
+  contact: "連絡先"
   jobs: "注文"
   machines: "機械管理"
   machine: "機械"
@@ -72,6 +73,19 @@ ja:
   subcontract_out_date: "出"
   subcontract_estimate_date: "予想納入日"
   subcontract_end_date: "入"
+
+  ransack:
+    attributes:
+      'job':
+        job: "注文"
+        name: "注文名"
+        client: "取引先"
+        billing: "注文番号"
+        in_date: "発注日"
+        target: "希望納期"
+        actual: "完成日"
+      'client':
+        name: "連絡先"
 
   date:
     abbr_day_names:

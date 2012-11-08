@@ -28,7 +28,10 @@ class JobsController < ApplicationController
 	end
 
 	def index
-		@job = Job.search(params[:search]).order(sort_column + ' ' + sort_direction).paginate(:per_page => 20, :page => params[:page])
+		@search = Job.search(params[:q])
+		@search.build_condition
+		@results = @search.result
+		@job = @results.paginate(:per_page => 10, :page => params[:page])
 	end
 
 	def edit

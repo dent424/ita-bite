@@ -3,3 +3,29 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .hidden { display: none; }
+
+.styled-select select {
+	width: 100px;
+	height: 30px;
+}
+
+.styled-select input {
+	width: 100px;
+}
+
+.styled-select {
+	display: inline-block;
+	height: 30px;
+}
+
+#floater {
+	float:left;
+	height: 50%;
+	margin-bottom: -120px;
+}
+
+#content {
+	clear:both;
+	height: 240px;
+	position: relative;
+}

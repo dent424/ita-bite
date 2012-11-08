@@ -4,12 +4,13 @@
 		<table class="table">
 			<thead>
 				<tr>
-					<th><%= sortable "name", t(:job_name)%></th>
-					<th><%= sortable "client", t(:client) %></th>
-					<th><%= sortable "billing", t(:job_billing) %></th>
-					<th><%= sortable "in_date", t(:job_intake) %></th>
-					<th><%= sortable "target", t(:job_target) %></th>
-					<th><%= sortable "actual",t(:job_complete) %></th>
+					<th><%= sort_link(@search, :name, t(:job_name))%></th>
+					<th> <%=t :client %> </th>
+					<th><%= sort_link(@search, :client, t(:contact))%>
+					<th><%=t :job_billing %></th>
+					<th><%= sort_link(@search, :in_date, t(:job_intake))%>
+					<th><%= sort_link(@search, :target, t(:job_target))%>
+					<th><%= sort_link(@search, :actual, t(:job_complete))%>
 					<th> Action </th>
 				</tr>
 			</thead>
@@ -21,7 +22,8 @@
 							<%= link_to job.client.name, job.client %>
 						<% end %>
 						</td>
-					<td><%= job.billing %></td>
+					<td><%= link_to job.client, job %></td>
+					<td><%= link_to job.billing, job %></td>
 					<td><%= job.in_date %></td>
 					<td><%= job.target %></td>
 					<td><% if job.actual? %>

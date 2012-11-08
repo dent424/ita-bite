@@ -2,6 +2,7 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
+  contact: "Contact"
   jobs: "Jobs"
   machines: "Machines"
   machine: "Approved Machines"
@@ -75,3 +76,18 @@ en:
   subcontract_out_date: "Out"
   subcontract_estimate_date: "Estimate"
   subcontract_end_date: "In"
+
+  ransack:
+    attributes:
+      'job':
+        job: "Job"
+        name: "Name"
+        client: "Contact"
+        billing: "Billing"
+        in_date: "In Date"
+        target: "Target"
+        actual: "Completion"
+      'client':
+        name: "Name"
+
+
