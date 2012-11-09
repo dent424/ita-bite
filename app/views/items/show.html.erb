@@ -1,7 +1,7 @@
 <body>
 	<div class="row">
 		<div class="span10 offset1">
-			<h2> <%= @item.identification %>. <%=@job.name%> <%= @item.pieces %>P</h2>
+			<h2> <%= @item.identification %> <%=link_to @job.name, @job%> <%= @item.pieces %>P</h2>
 			<h3> <%= @item.name %> (<%= @item.blue_print_number %>) </h3>
 
 			<%= link_to t(:item_edit),  edit_job_item_path(@job, @item), {:class => 'btn btn-primary'} %>
