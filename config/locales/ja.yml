@@ -1,6 +1,8 @@
 ja:
   contact: "連絡先"
   jobs: "注文"
+  low: "普通"
+  high: "厳守"
   machines: "機械管理"
   machine: "機械"
   employees: "作業者"

@@ -4,6 +4,8 @@
 en:
   contact: "Contact"
   jobs: "Jobs"
+  low: "Low"
+  high: "High"
   machines: "Machines"
   machine: "Approved Machines"
   employees: "Employees"

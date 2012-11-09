@@ -16,7 +16,13 @@
 			</thead>
 			<tbody>
 				<% @job.each do |job| %>
-				<tr>
+				<% if job.target < Date.today %>
+					<tr class="error">
+				<% elsif job.priority == 2%>
+					<tr class="warning">
+				<% else %>
+					<tr>
+				<% end %>
 					<td><%= link_to job.name, job %></td>
 					<td><% if job.client %>
 							<%= link_to job.client.name, job.client %>
