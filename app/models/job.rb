@@ -1,4 +1,5 @@
 class Job < ActiveRecord::Base
+  DEFAULT_SEARCH_PARAMETER ={}
   attr_accessible :items_attributes, :actual, :billing, :contact, :description, :in_date, :name, :target, :client_id
   belongs_to :client
   has_many :items

@@ -28,7 +28,7 @@ class JobsController < ApplicationController
 	end
 
 	def index
-		@search = Job.search(params[:q])
+		@search = Job.search(params[:q] || Job::DEFAULT_SEARCH_PARAMETER)
 		@search.build_condition
 		@results = @search.result
 		@job = @results.paginate(:per_page => 10, :page => params[:page])

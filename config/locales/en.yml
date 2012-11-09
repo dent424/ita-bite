@@ -82,7 +82,7 @@ en:
       'job':
         job: "Job"
         name: "Name"
-        client: "Contact"
+        contact: "Contact"
         billing: "Billing"
         in_date: "In Date"
         target: "Target"

@@ -79,13 +79,13 @@ ja:
       'job':
         job: "注文"
         name: "注文名"
-        client: "取引先"
+        contact: "連絡先"
         billing: "注文番号"
         in_date: "発注日"
         target: "希望納期"
         actual: "完成日"
       'client':
-        name: "連絡先"
+        name: "取引先"
 
   date:
     abbr_day_names:
