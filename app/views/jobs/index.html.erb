@@ -1,24 +1,12 @@
 <body>
 	<div class="row">
 	<div class="span8 offset1">
-		
-
 		<h1><%=t :jobs %></h1>
 		<%= search_form_for @search do |f| %>
 			<%= f.condition_fields do |c| %>
-				<div class="field">
-					<div class ="styled-select">
-						<%= c.attribute_fields do |a| %>
-							<%= a.attribute_select associations: [:client] %>
-						<% end %>
-						<%= c.predicate_select({only: [:eq]})%>
-						<%= c.value_fields do |v| %>
-							<%= v.text_field :value %>
-						<% end %>
-						<%= f.submit "Search", :class => "btn" %>
-					</div>
-				</div>
+				<%= render "condition_fields", f: c%>
 			<% end %>
+			<div class="actions"><%= f.submit t(:search), :class => "btn" %></div>
 		<% end %>
 
 		<%= link_to t(:add_job),  new_job_path, {:class => 'btn btn-primary'} %>
