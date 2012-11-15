@@ -4,14 +4,14 @@
 		<table class="table">
 			<thead>
 				<tr>
+					<th></th>
 					<th><%= sort_link(@search, :name, t(:job_name))%></th>
 					<th> <%=t :client %> </th>
-					<th><%= sort_link(@search, :contact, t(:contact))%>
+					<th><%= sort_link(@search, :contact, t(:contact))%></th>
 					<th><%=t :job_billing %></th>
-					<th><%= sort_link(@search, :in_date, t(:job_intake))%>
-					<th><%= sort_link(@search, :target, t(:job_target))%>
-					<th><%= sort_link(@search, :actual, t(:job_complete))%>
-					<th> Action </th>
+					<th><%= sort_link(@search, :in_date, t(:job_intake))%></th>
+					<th><%= sort_link(@search, :target, t(:job_target))%></th>
+					<th><%= sort_link(@search, :actual, t(:job_complete))%></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -23,6 +23,7 @@
 				<% else %>
 					<tr>
 				<% end %>
+					<td><div class="hide_items">+</div></td>
 					<td><%= link_to job.name, job %></td>
 					<td><% if job.client %>
 							<%= link_to job.client.name, job.client %>
@@ -41,7 +42,6 @@
 							<% end %>
 						<% end %>
 					</td>
-					<td><div class="hide_items">Hide</div></td>
 				</tr>
 				<tr class="hidden">
 					<td></td>
