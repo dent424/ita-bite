@@ -25,6 +25,11 @@ class JobsController < ApplicationController
 	def show
 		@job=Job.find(params[:id])
 		@item = @job.items.find(:all)
+
+		respond_to do |format|
+			format.html
+			format.pdf {render :layout => false}
+		end
 	end
 
 	def index
