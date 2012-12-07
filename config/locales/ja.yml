@@ -1,4 +1,5 @@
 ja:
+  inventory: "在庫"
   contact: "連絡先"
   jobs: "注文"
   low: "普通"
@@ -11,6 +12,8 @@ ja:
   pieces: "数量"
   notes: "備考"
   round_square: "丸/角"
+  round: "丸"
+  square: "角"
   edit: "訂正"
   finish: "完了"
   delete: "削除" 

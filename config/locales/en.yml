@@ -2,6 +2,7 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
+  inventory: "Inventory"
   contact: "Contact"
   jobs: "Jobs"
   low: "Low"
@@ -14,6 +15,8 @@ en:
   pieces: "Pieces"
   notes: "Notes"
   round_square: "Round/Square"
+  round: "Round"
+  square: "Square"
   edit: "Edit"
   finish: "Finish"
   delete: "Delete"
